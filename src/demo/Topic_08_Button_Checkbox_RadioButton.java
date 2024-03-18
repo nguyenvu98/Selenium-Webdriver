@@ -136,10 +136,6 @@ public class Topic_08_Button_Checkbox_RadioButton {
         }
     }
 
-    @Test
-    public void TC_06_Custom_Checkbox(){
-
-    }
 
     public void checkToElement(By byXpath){
         if (!driver.findElement(byXpath).isSelected()){
