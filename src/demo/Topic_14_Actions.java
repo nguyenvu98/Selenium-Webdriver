@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Topic_14_Actions {
     WebDriver driver;
@@ -64,6 +65,17 @@ public class Topic_14_Actions {
         actions.click(driver.findElement(By.xpath("//a[text()='Home & Bath' and @class='desktop-categoryName']"))).perform();
     }
 
+    @Test
+    public void TC_03_ClickAndHold(){
+        driver.get("https://automationfc.github.io/jquery-selectable/");
+        List<WebElement> allNumbers = driver.findElements(By.cssSelector("li.ui-state-default"));
+        Assert.assertEquals(allNumbers.size(), 20);
+        actions.clickAndHold(allNumbers.get(0))
+                .moveToElement(allNumbers.get(15))
+                .release()
+                .perform();
+    }
+
 
 
     public void checkToElement(By byXpath){
@@ -78,7 +90,7 @@ public class Topic_14_Actions {
             sleepInSecond(3);
         }
     }
-        public void sleepInSecond(long timeInSecond){
+    public void sleepInSecond(long timeInSecond){
         try {
             Thread.sleep(timeInSecond * 1000);
         } catch (InterruptedException e) {
